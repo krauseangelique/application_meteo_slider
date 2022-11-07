@@ -3,17 +3,25 @@ body{
 }
 main{
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap; */
     justify-content: center;
     background-color:rgb(113, 136, 142);
+    overflow-x: scroll; /* Si tu dépasses de la page tu me fais un scroll sur le bas : DEBUT DU SLIDER*/
+    
 }
 h1{
     text-align: center;
 }
-div{
+div#content{
     border: 1px solid brown;
     background-color: wheat;
     margin: 5px;
+    padding: 5px;
     border-radius: 10px;
-    max-width: 13rem;
+    min-width: 13rem;    
+}
+button{
+    width: 3rem;
+    height: 3rem;
+    margin: 10px;
 }

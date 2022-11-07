@@ -21,7 +21,7 @@ Latitude: 50.6333, Longitude: 5.56667 50° 37′ 60″ Nord, 5° 34′ 0″ Est
 const latLiege = 50.6333;
 const lonLiege = 5.56667;
 const lang = "fr";
-const counter = 7; // Les données météo de 7 appel à l'API
+const counter = 40; // Les données météo de 7 appel à l'API
 
 /* Connexion avec l'API via son URL : 
 https://api.openweathermap.org/data/2.5/forecast?units=metric&lat=50.6333&lon=5.56667&appid=6f0d59dfcb080cd8495827d107606a39&lang=fr&cnt=7
@@ -113,3 +113,18 @@ async function displayDatas() {
 }
 // Appel de la fonction
 displayDatas();
+
+/* Mise en place d'un SLIDER */
+// Evènement sur les boutons en fonctions de nombre de vue de carte
+document.getElementById("previous").addEventListener("click", () => {
+
+    // je vois autant de carte
+
+})
+
+document.getElementById("next").addEventListener("click", () => {
+
+    // je retourne d'autant de carte
+    
+})
+
