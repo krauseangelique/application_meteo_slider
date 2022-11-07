@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(158, 226, 247);
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color:rgb(113, 136, 142);
+}
+h1{
+    text-align: center;
+}
+div{
+    border: 1px solid brown;
+    background-color: wheat;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 13rem;
+}
