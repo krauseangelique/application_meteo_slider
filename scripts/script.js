@@ -105,6 +105,10 @@ async function displayDatas() {
         templateElement.getElementById("winSpeed").textContent      = `Vitesse du vent : ${Math.round(call.wind.speed*3.6)} km/h`; // transformation m/s en km/h
         templateElement.getElementById("description").textContent   = call.weather[0].description; // ► weather:[{… }] est un TABLEAU
 
+        //const div = templateElement
+        
+        const listItem = document.createElement("li");
+        listItem.innerText = "⚾";
 
         //  templateElement est un enfant de main dans l'HTML
         document.querySelector("main").appendChild(templateElement);
@@ -119,12 +123,14 @@ displayDatas();
 document.getElementById("previous").addEventListener("click", () => {
 
     // je vois autant de carte
+    document.querySelector('main').scrollLeft -= 720;
 
 })
 
 document.getElementById("next").addEventListener("click", () => {
 
     // je retourne d'autant de carte
-    
+    document.querySelector('main').scrollLeft += 720;
+
 })
 

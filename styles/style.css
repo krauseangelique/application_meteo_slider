@@ -25,3 +25,11 @@ button{
     height: 3rem;
     margin: 10px;
 }
+ul{
+    display: flex;
+}
+li{
+list-style: none;
+
+
+} 
