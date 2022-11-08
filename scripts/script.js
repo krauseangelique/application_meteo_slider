@@ -23,6 +23,8 @@ const lonLiege = 5.56667;
 const lang = "fr";
 const counter = 40; // Les données météo de 7 appel à l'API
 
+
+
 /* Connexion avec l'API via son URL : 
 https://api.openweathermap.org/data/2.5/forecast?units=metric&lat=50.6333&lon=5.56667&appid=6f0d59dfcb080cd8495827d107606a39&lang=fr&cnt=7
 */
@@ -105,18 +107,37 @@ async function displayDatas() {
         templateElement.getElementById("winSpeed").textContent      = `Vitesse du vent : ${Math.round(call.wind.speed*3.6)} km/h`; // transformation m/s en km/h
         templateElement.getElementById("description").textContent   = call.weather[0].description; // ► weather:[{… }] est un TABLEAU
 
-        //const div = templateElement
-        
-        const listItem = document.createElement("li");
+
+        const div = templateElement.getElementById("date").parentElement;
+
+        div.setAttribute("id", `${index}`);
+
+        // je crée l'objet dynamiquement 
+        const listItemCreation = `<li id="${index}">${call.dt_txt}</li>`;
+
+        // pour ne pas ECRASER je vais incrémenter
+        list.innerHTML += listItemCreation;
+        const listItem = document.getElementById
         listItem.innerText = "⚾";
 
-        //  templateElement est un enfant de main dans l'HTML
-        document.querySelector("main").appendChild(templateElement);
+        // on va ajouter un ad event listener sur la div qu'on veut montrer 
+        
+       
+
+        
+        
+
+       // list.appendChild(listItem);
+        main.appendChild(templateElement);
     });
 
 }
 // Appel de la fonction
 displayDatas();
+
+// comparaison de la liste et de la div pour les class = "5"
+console.log(list.children);
+
 
 /* Mise en place d'un SLIDER */
 // Evènement sur les boutons en fonctions de nombre de vue de carte
