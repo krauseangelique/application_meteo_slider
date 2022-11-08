@@ -88,12 +88,14 @@ async function displayDatas() {
 
     /* Le template en HTML
     <template>
-        <p id="date">Date</p>
-        <img src="" alt="">
-        <p id="maxTemp">Max temp</p>
-        <p id="minTemp">Min temp</p>
-        <p id="winSpeed">Wind Speed</p>
-        <p id="description">Description</p>
+        <div class="index">
+            <p id="date">Date</p>
+            <img src="" alt="">
+            <p id="maxTemp">Max temp</p>
+            <p id="minTemp">Min temp</p>
+            <p id="winSpeed">Wind Speed</p>
+            <p id="description">Description</p>
+        </div>
     </template>
    */
 
@@ -109,11 +111,10 @@ async function displayDatas() {
 
 
         const div = templateElement.getElementById("date").parentElement;
-
         div.setAttribute("id", `${index}`);
 
         // je crée l'objet dynamiquement 
-        const listItemCreation = `<li id="${index}">${call.dt_txt}</li>`;
+        const listItemCreation = `<li id="${index}">${call.dt_txt.substring(5,7)}</li>`;
 
         // pour ne pas ECRASER je vais incrémenter
         list.innerHTML += listItemCreation;
@@ -125,8 +126,13 @@ async function displayDatas() {
        
 
         
-        
+        document.addEventListener("click", (e) =>{
+             console.log(e.target.id);
+        });
 
+       if (listItem.id != div.id) {
+        return;
+       }
        // list.appendChild(listItem);
         main.appendChild(templateElement);
     });
@@ -134,6 +140,14 @@ async function displayDatas() {
 }
 // Appel de la fonction
 displayDatas();
+
+next.addEventListener("click", () => {
+    main.scrollLeft += main.clientWidth;
+});
+
+previous.addEventListener("click", () => {
+    main.scrollLeft -= main.clientWidth;
+});
 
 // comparaison de la liste et de la div pour les class = "5"
 console.log(list.children);
@@ -153,5 +167,12 @@ document.getElementById("next").addEventListener("click", () => {
     // je retourne d'autant de carte
     document.querySelector('main').scrollLeft += 720;
 
-})
+});
+
+document.addEventListener("click", (e) => {
+    const buttonClickedId = e.target.id;
+    console.log(buttonClickedId);
+});
+
+
 
